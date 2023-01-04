@@ -37,12 +37,12 @@ document.querySelector('.check').addEventListener('click', function () {
         if (document.querySelector('.highscore').textContent <  score) document.querySelector('.highscore').textContent = score ;
 
     }
-            
-//guess is too high
-    
-        else if (guess > secretNumber) {
+    //guess is too high or low
+    else if (guess !== secretNumber) {
+
+
         if (score > 0) {
-            document.querySelector('.message').textContent = 'Too high! 😢';
+            document.querySelector('.message').textContent = (guess > secretNumber) ?'Too high! 😢' : 'Too low! 😢';
             score--
             document.querySelector('.score').textContent = score;
         }
@@ -50,19 +50,9 @@ document.querySelector('.check').addEventListener('click', function () {
            document.querySelector('.message').textContent = 'you lost😭😭'; 
 
         }
-    }
-        //guess is too high
-    else if (guess < secretNumber) {
-        if (score > 0) {
-            document.querySelector('.message').textContent = 'Too low! 😢';
-            score--
-            document.querySelector('.score').textContent = score;
         }
-        else {
-           document.querySelector('.message').textContent = 'you lost😭😭'; 
-
-        }
-    }
+        
+  
 })
 
 document.querySelector('.again').addEventListener('click', function () {
